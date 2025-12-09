@@ -1,297 +1,553 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Mihir Pewekar | Portfolio</title>
+  <meta charset="UTF-8">
+  <title>Mihir Pewekar | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 1000px;
-            margin: 40px auto;
-            line-height: 1.6;
-        }
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --card: #ffffff;
+      --accent: #1f4f7b;
+      --accent-soft: #e0edf9;
+      --text-main: #222222;
+      --text-muted: #666666;
+      --border: #dddddd;
+    }
 
-        h1, h2, h3 {
-            color: #333;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* Tabs bar */
-        .tabs {
-            display: flex;
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 20px;
-        }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 20px;
+    }
 
-        .tab-button {
-            padding: 10px 16px;
-            cursor: pointer;
-            border: none;
-            background: #f5f5f5;
-            border-right: 1px solid #ddd;
-            font-size: 14px;
-        }
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      background: var(--card);
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      padding: 24px;
+    }
 
-        .tab-button:last-child {
-            border-right: none;
-        }
+    /* Header */
+    .header {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+    }
 
-        .tab-button.active {
-            background: #ffffff;
-            font-weight: bold;
-            border-bottom: 2px solid #333;
-        }
+    .profile-pic {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent-soft);
+      flex-shrink: 0;
+    }
 
-        .tab-content {
-            display: none;
-        }
+    .header-text h1 {
+      font-size: 1.9rem;
+      margin-bottom: 4px;
+    }
 
-        .tab-content.active {
-            display: block;
-        }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
 
-        .section {
-            margin-bottom: 30px;
-        }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
 
-        .project {
-            margin-bottom: 20px;
-        }
+    .links a {
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--accent);
+      background: #fff;
+    }
 
-        ul {
-            margin-top: 0;
-        }
+    .links a:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent-soft);
+    }
 
-        a {
-            color: #0066cc;
-        }
-    </style>
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin: 18px 0;
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+    }
+
+    .tab-button {
+      border: none;
+      background: transparent;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      border-radius: 999px 999px 0 0;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .tab-button.active {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-bottom-color: var(--card);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .tab-content {
+      display: none;
+      padding-top: 14px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Sections */
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .section {
+      margin-bottom: 22px;
+    }
+
+    .muted {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Project cards */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    @media (min-width: 800px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      max-height: 180px;
+    }
+
+    .project-card h3 {
+      font-size: 1rem;
+      margin-top: 4px;
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+    }
+
+    .project-card ul {
+      margin-left: 18px;
+      font-size: 0.88rem;
+    }
+
+    .project-links {
+      margin-top: 4px;
+      font-size: 0.85rem;
+    }
+
+    .project-links a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Education & Skills lists */
+    ul {
+      margin-left: 18px;
+      margin-top: 4px;
+    }
+
+    .edu-item {
+      margin-bottom: 10px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .tag {
+      font-size: 0.8rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .exp-role {
+      margin-bottom: 12px;
+    }
+
+    .exp-role h3 {
+      font-size: 0.98rem;
+      margin-bottom: 2px;
+    }
+
+    .exp-org {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .exp-role ul {
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 650px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <h1 style="margin-bottom: 10px;">Mihir Pewekar</h1>
-    <p style="margin-top: 0;">
-        PhD researcher in acoustics at Virginia Tech working on transcranial focused ultrasound,
-        acoustic holography, and simulation-driven medical device design.
-    </p>
+  <div class="container">
+    <!-- Header with photo + basic info + links -->
+    <header class="header">
+      <img src="profile.jpg" alt="Photo of Mihir Pewekar" class="profile-pic">
 
-    <!-- TAB BUTTONS -->
-    <div class="tabs">
-        <button class="tab-button active" onclick="openTab(event, 'home')">Home</button>
-        <button class="tab-button" onclick="openTab(event, 'projects')">Projects</button>
-        <button class="tab-button" onclick="openTab(event, 'experience')">Experience</button>
-        <button class="tab-button" onclick="openTab(event, 'contact')">Contact</button>
-    </div>
-
-    <!-- TAB: HOME -->
-    <div id="home" class="tab-content active">
-        <div class="section">
-            <h2>About Me</h2>
-            <p>
-                I am a mechanical engineer and acoustics researcher focused on transcranial focused ultrasound,
-                acoustic holography, and experimental validation of complex wave fields.
-                My work combines numerical modeling (k-Wave, COMSOL, mSOUND) with 3D printing
-                and hydrophone-based measurements.
-            </p>
+      <div class="header-text">
+        <h1>Mihir Pewekar</h1>
+        <div class="subtitle">
+          PhD Candidate in Mechanical Engineering • Acoustics &amp; Ultrasound<br>
+          Virginia Tech
         </div>
 
-        <div class="section">
-            <h2>Research Highlights</h2>
-            <ul>
-                <li>Design and validation of multiplex acoustic holographic lenses for transcranial neuromodulation.</li>
-                <li>Automated 3D hydrophone scanning system for mapping ultrasound fields.</li>
-                <li>Elastic–acoustic mode conversion modeling at multilayer interfaces.</li>
-            </ul>
+        <div class="links">
+          <a href="mailto:mihirpewekar95@vt.edu">Email</a>
+          <a href="https://www.linkedin.com/in/mihirpewekar" target="_blank">LinkedIn</a>
+          <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>
+          <a href="resume.pdf" target="_blank">Resume (PDF)</a>
         </div>
-    </div>
+      </div>
+    </header>
 
-       <!-- TAB: PROJECTS -->
-    <div id="projects" class="tab-content">
-        <div class="section">
-            <h2>Selected Projects</h2>
+    <!-- Tabs -->
+    <nav class="tabs">
+      <button class="tab-button active" onclick="openTab(event, 'home')">Home</button>
+      <button class="tab-button" onclick="openTab(event, 'education')">Education</button>
+      <button class="tab-button" onclick="openTab(event, 'projects')">Projects</button>
+      <button class="tab-button" onclick="openTab(event, 'skills')">Skills &amp; Experience</button>
+    </nav>
 
-            <!-- Acoustic Holography & Transcranial Ultrasound -->
-            <div class="project">
-                <h3>Acoustic Holography &amp; Transcranial Ultrasound</h3>
-                <p>
-                    Experimental and computational investigation of elastic and acoustic wave propagation in layered media
-                    for transcranial focused ultrasound, integrating simulation, fabrication, and 3D hydrophone-based validation.
-                </p>
-                <ul>
-                    <li>Constructed simulation models using k-Wave and mSOUND to study wave propagation through skull and multilayer holographic lenses.</li>
-                    <li>Applied optimization algorithms to synthesize arbitrary and volumetric target patterns in highly heterogeneous media.</li>
-                    <li>Integrated COMSOL-derived stress tensors with the angular spectrum method to identify coupled modes in multilayer acoustic lenses.</li>
-                    <li>Developed and validated patient-specific skull-conformal AHLs using neuroimaging data, numerical modeling, and hydrophone measurements.</li>
-                </ul>
-            </div>
+    <!-- HOME TAB -->
+    <section id="home" class="tab-content active">
+      <div class="section">
+        <h2>About Me</h2>
+        <p>
+          I am a mechanical engineer and acoustics researcher focused on
+          <b>transcranial focused ultrasound</b>, <b>acoustic holography</b>,
+          and <b>simulation-driven medical device design</b>.
+          My work combines numerical modeling (k-Wave, COMSOL, mSOUND),
+          CT/MRI-based neuroimaging, and 3D-printed holographic lenses
+          with hydrophone-based experimental validation.
+        </p>
+      </div>
 
-            <!-- Skull-Conformal Acoustic Holographic Lenses -->
-            <div class="project">
-                <h3>Skull-Conformal Acoustic Holographic Lenses</h3>
-                <p>
-                    Design and realization of patient-specific, skull-conformal acoustic holographic lenses to enhance transcranial
-                    therapeutic ultrasound by improving targeting accuracy and energy delivery through complex cranial geometries.
-                </p>
-                <ul>
-                    <li>Translated CT/MRI-derived skull morphology into computational models for generating conformal hologram phase maps.</li>
-                    <li>Implemented SLA 3D printing workflows to realize multiplex, multilayer holograms tailored to individual skull geometries.</li>
-                    <li>Performed 3D hydrophone-based pressure field scans to validate focusing accuracy and mode-coupling behavior.</li>
-                    <li>Co-inventor on a provisional USPTO patent for individualized wavefield vectoring in skull-conformal neuromodulation.</li>
-                </ul>
-            </div>
+      <div class="section">
+        <h2>Research Interests</h2>
+        <ul>
+          <li>Transcranial focused ultrasound and neuromodulation</li>
+          <li>Acoustic holography and wavefield shaping in complex media</li>
+          <li>Elastic–acoustic mode conversion and multilayer lens design</li>
+          <li>Medical device R&amp;D and translational ultrasound technologies</li>
+        </ul>
+      </div>
+    </section>
 
-            <!-- Class I Medical Device Design -->
-            <div class="project">
-                <h3>Class I Medical Device Design &amp; Prototyping</h3>
-                <p>
-                    Led the design and prototyping of Class I medical devices, overseeing CAD modeling, tolerance definition, and coordination
-                    with fabrication under regulatory constraints. Only publicly available materials are shown here due to NDAs.
-                </p>
-                <ul>
-                    <li>Developed 3D CAD models and documentation pipelines compliant with medical device standards.</li>
-                    <li>Coordinated with fabrication partners for prototype builds and iterative design refinements.</li>
-                    <li>Integrated feedback from clinicians and end users for usability and safety improvements.</li>
-                </ul>
-                <p>
-                    Public link:
-                    <a href="https://www.linkedin.com/posts/improvians_engineering-productdesign-innovation-activity-7185645546135568384-pfJi" target="_blank">
-                        LinkedIn post (public)
-                    </a>
-                </p>
-            </div>
+    <!-- EDUCATION TAB -->
+    <section id="education" class="tab-content">
+      <div class="section">
+        <h2>Education</h2>
 
-            <!-- Non-Pneumatic Tire (NPT) -->
-            <div class="project">
-                <h3>Non-Pneumatic Tire (NPT) with Skewed Hexagonal Honeycomb Structure</h3>
-                <p>
-                    Developed and investigated a novel non-pneumatic tire (NPT) concept using skewed hexagonal honeycomb structures
-                    to reduce contact pressure and rolling resistance while enhancing brake cooling via forced convection.
-                </p>
-                <ul>
-                    <li>Innovated conventional NPT designs by skewing boundary planar geometries to improve airflow and cooling.</li>
-                    <li>Used FEA and CFD (ANSYS Fluent) to study the impact of skewness on structural response and airflow.</li>
-                    <li>Computed aerodynamic parameters for rotating cases and modeled heat transfer over a brake rotor.</li>
-                    <li>Identified an optimum skewness range balancing structural integrity and forced convection performance.</li>
-                </ul>
-                <p>
-                    Publication:
-                    <a href="https://doi.org/10.1115/IMECE2018-86454" target="_blank">
-                        ASME IMECE Paper (2018)
-                    </a>
-                </p>
-            </div>
-
-            <!-- Active Magnetic Bearing -->
-            <div class="project">
-                <h3>Active Magnetic Bearing (AMB): Design, Analysis &amp; Test Bench Fabrication</h3>
-                <p>
-                    Designed and analyzed an active magnetic bearing system that uses electromagnetic levitation to support a rotor
-                    without mechanical contact, aiming to reduce wear, frictional losses, and enable ultra-high rotational speeds.
-                </p>
-                <ul>
-                    <li>Designed a multi-pole electromagnetic stator structure with independently controlled poles for precision levitation.</li>
-                    <li>Derived models for force–current relationships, magnetic stiffness, slew rate, and specific load capacity.</li>
-                    <li>Simulated flux densities and force generation using finite element solvers, identifying saturation limits.</li>
-                    <li>Built a benchtop prototype to experimentally measure force efficiency and validate analytical predictions.</li>
-                </ul>
-            </div>
-
-            <!-- Go-Kart Design -->
-            <div class="project">
-                <h3>Go-Kart Design &amp; Fabrication</h3>
-                <p>
-                    Designed and fabricated a custom go-kart, integrating mechanical design, material selection, and hands-on manufacturing
-                    for a student competition.
-                </p>
-                <ul>
-                    <li>Created CAD models for chassis, steering, and drivetrain components with safety and stiffness constraints.</li>
-                    <li>Performed structural and weight analysis to optimize the frame geometry.</li>
-                    <li>Fabricated the chassis using welding and machining processes and integrated powertrain and braking systems.</li>
-                    <li>Conducted test runs to evaluate performance, handling, and durability.</li>
-                </ul>
-                <p>
-                    Report:
-                    <a href="https://www.researchgate.net/publication/322750106_Design_of_subsystems_of_Go-kart_vehicle" target="_blank">
-                        Project report (PDF)
-                    </a>
-                </p>
-            </div>
-
-            <!-- 3D-Printed Open PC Case -->
-            <div class="project">
-                <h3>3D-Printed Open PC Case</h3>
-                <p>
-                    Personal project designing and fabricating a custom open-frame PC case using 3D printing to showcase both hardware
-                    and design craftsmanship.
-                </p>
-                <ul>
-                    <li>Designed modular panels and structural components in CAD optimized for additive manufacturing.</li>
-                    <li>Assembled a fully functional PC with an open layout for accessibility and visual presentation.</li>
-                </ul>
-            </div>
-
-            <!-- Optional link to full portfolio PDF -->
-            <p>
-                Full portfolio PDF:
-                <a href="portfolio.pdf" target="_blank">Download here</a>
-            </p>
+        <div class="edu-item">
+          <strong>PhD, Mechanical Engineering (in progress)</strong><br>
+          Virginia Tech, Blacksburg, VA<br>
+          <span class="muted">Focus: Acoustics, transcranial focused ultrasound, acoustic holography</span>
         </div>
-    </div>
 
-
-    <!-- TAB: EXPERIENCE -->
-    <div id="experience" class="tab-content">
-        <div class="section">
-            <h2>Experience</h2>
-            <h3>Graduate Research Assistant – Acoustics</h3>
-            <p>
-                Conduct experimental and computational studies of ultrasonic wave propagation in complex media,
-                with emphasis on transcranial focused ultrasound and acoustic holography.
-            </p>
-
-            <h3>Graduate Teaching Assistant</h3>
-            <p>
-                Support course instruction through grading, problem-solving sessions, and student assistance.
-                Contribute to ABET-related documentation and outcome assessment.
-            </p>
-
-            <h3>Mechanical Design Engineer – Improvians Engineering Services</h3>
-            <p>
-                Provide mechanical design and engineering support for product development, including CAD modeling,
-                design documentation, FEA/CFD analysis, and coordination with manufacturing for prototype builds.
-            </p>
+        <div class="edu-item">
+          <strong>Bachelor of Engineering, Mechanical Engineering</strong><br>
+          University of Pune (or your institution name)<br>
+          <span class="muted">Projects in non-pneumatic tires, active magnetic bearings, and vehicle dynamics.</span>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <!-- TAB: CONTACT -->
-    <div id="contact" class="tab-content">
-        <div class="section">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:your_email@vt.edu">your_email@vt.edu</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/">LinkedIn Profile</a></p>
-            <p>GitHub: <a href="https://github.com/">GitHub Profile</a></p>
+    <!-- PROJECTS TAB -->
+    <section id="projects" class="tab-content">
+      <div class="section">
+        <h2>Selected Projects</h2>
+        <p class="muted">A sample of research, engineering, and personal projects. More details available on request.</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Acoustic Holography & Transcranial Ultrasound -->
+        <article class="project-card">
+          <img src="Img1.png" alt="Hydrophone scanning setup">
+          <h3>Acoustic Holography &amp; Transcranial Ultrasound</h3>
+          <p>
+            Experimental and computational investigation of elastic and acoustic wave propagation in layered media
+            for transcranial focused ultrasound, integrating simulation, fabrication, and 3D hydrophone-based validation.
+          </p>
+          <ul>
+            <li>Built k-Wave and mSOUND models for skull and multilayer holographic lenses.</li>
+            <li>Used optimization to synthesize arbitrary and volumetric target patterns through heterogeneous bone.</li>
+            <li>Integrated COMSOL-derived stress tensors with angular spectrum methods to study coupled modes.</li>
+          </ul>
+        </article>
+
+        <!-- Skull-Conformal Acoustic Holographic Lenses -->
+        <article class="project-card">
+          <img src="skull_conformal_lens.png" alt="Skull-conformal acoustic holographic lens">
+          <h3>Skull-Conformal Acoustic Holographic Lenses</h3>
+          <p>
+            Patient-specific, skull-conformal acoustic holographic lenses to enhance transcranial therapeutic ultrasound
+            by improving targeting accuracy and energy delivery through complex cranial geometries.
+          </p>
+          <ul>
+            <li>Generated conformal phase maps from CT/MRI-derived skull morphology.</li>
+            <li>Fabricated multiplex SLA-printed holograms tailored to individual skulls.</li>
+            <li>Validated focusing accuracy and mode-coupling with 3D hydrophone scans.</li>
+          </ul>
+        </article>
+
+        <!-- Medical Device Design -->
+        <article class="project-card">
+          <img src="Screenshot-2025-09-01-090512.png" alt="Medical device design (public image)">
+          <h3>Class I Medical Device Design &amp; Prototyping</h3>
+          <p>
+            Design and prototyping of Class I medical devices under NDA constraints, from CAD through fabrication-ready
+            prototypes and design-for-manufacturing considerations.
+          </p>
+          <ul>
+            <li>Developed CAD models and design documentation for regulatory-compliant prototypes.</li>
+            <li>Coordinated with manufacturing partners to refine form, fit, and function.</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://www.linkedin.com/posts/improvians_engineering-productdesign-innovation-activity-7185645546135568384-pfJi" target="_blank">
+              Public LinkedIn reference
+            </a>
+          </div>
+        </article>
+
+        <!-- NPT -->
+        <article class="project-card">
+          <img src="npt.png" alt="Non-pneumatic tire design">
+          <h3>Non-Pneumatic Tire with Skewed Hexagonal Honeycomb</h3>
+          <p>
+            Novel NPT concept using skewed hexagonal honeycomb structures to reduce contact pressure and rolling resistance
+            while enhancing convective brake cooling.
+          </p>
+          <ul>
+            <li>Performed FEA and CFD (ANSYS Fluent) on rotating tire geometries.</li>
+            <li>Modeled heat transfer over brake rotors to evaluate cooling performance.</li>
+            <li>Identified an optimal skewness range balancing strength and heat rejection.</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://doi.org/10.1115/IMECE2018-86454" target="_blank">ASME IMECE paper</a>
+          </div>
+        </article>
+
+        <!-- Active Magnetic Bearing -->
+        <article class="project-card">
+          <img src="amb.png" alt="Active magnetic bearing schematic">
+          <h3>Active Magnetic Bearing: Design, Analysis &amp; Test Bench</h3>
+          <p>
+            Contactless bearing system using electromagnetic levitation to eliminate mechanical wear and enable ultra-high
+            rotational speeds.
+          </p>
+          <ul>
+            <li>Designed multi-pole stator geometry with independently controlled poles.</li>
+            <li>Developed models for force–current relationships and magnetic stiffness.</li>
+            <li>Used FEM to study flux, saturation, and actuator efficiency.</li>
+          </ul>
+        </article>
+
+        <!-- Go-Kart -->
+        <article class="project-card">
+          <img src="gokart.png" alt="Go-kart">
+          <h3>Go-Kart Design &amp; Fabrication</h3>
+          <p>
+            End-to-end design and build of a student competition go-kart, from chassis layout and strength analysis to
+            fabrication and test runs.
+          </p>
+          <ul>
+            <li>Modeled chassis, steering, and drivetrain components in CAD.</li>
+            <li>Performed structural and weight optimization for the frame.</li>
+            <li>Integrated braking and engine systems into a working prototype.</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://www.researchgate.net/publication/322750106_Design_of_subsystems_of_Go-kart_vehicle" target="_blank">
+              Project report
+            </a>
+          </div>
+        </article>
+
+        <!-- 3D-Printed PC Case -->
+        <article class="project-card">
+          <img src="PC.png" alt="3D printed PC case">
+          <h3>3D-Printed Open PC Case</h3>
+          <p>
+            Personal project designing a modular, open-frame PC case that showcases internal hardware while remaining functional
+            and easy to assemble.
+          </p>
+          <ul>
+            <li>Created modular CAD components optimized for 3D printing.</li>
+            <li>Built and wired a fully functional system using the custom case.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS & EXPERIENCE TAB -->
+    <section id="skills" class="tab-content">
+      <div class="section">
+        <h2>Skills</h2>
+
+        <h3>Acoustics &amp; Ultrasound</h3>
+        <div class="tag-list">
+          <span class="tag">Transcranial FUS</span>
+          <span class="tag">Acoustic holography</span>
+          <span class="tag">Elastic–acoustic coupling</span>
+          <span class="tag">Hydrophone measurements</span>
         </div>
-    </div>
 
-    <script>
-        function openTab(evt, tabId) {
-            // Hide all tab contents
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(c => c.classList.remove('active'));
+        <h3>Modeling &amp; Simulation</h3>
+        <div class="tag-list">
+          <span class="tag">MATLAB</span>
+          <span class="tag">k-Wave</span>
+          <span class="tag">COMSOL Multiphysics</span>
+          <span class="tag">mSOUND</span>
+          <span class="tag">ANSYS FEA/CFD</span>
+        </div>
 
-            // Remove 'active' from all buttons
-            const buttons = document.querySelectorAll('.tab-button');
-            buttons.forEach(b => b.classList.remove('active'));
+        <h3>Design &amp; Prototyping</h3>
+        <div class="tag-list">
+          <span class="tag">CAD (SolidWorks, Fusion 360)</span>
+          <span class="tag">3D printing (SLA)</span>
+          <span class="tag">Medical device prototyping</span>
+          <span class="tag">Experimental test rigs</span>
+        </div>
 
-            // Show selected tab
-            const activeContent = document.getElementById(tabId);
-            if (activeContent) {
-                activeContent.classList.add('active');
-            }
+        <h3>Programming &amp; Tools</h3>
+        <div class="tag-list">
+          <span class="tag">MATLAB</span>
+          <span class="tag">Python</span>
+          <span class="tag">LaTeX</span>
+          <span class="tag">Git</span>
+        </div>
+      </div>
 
-            // Mark button as active
-            evt.currentTarget.classList.add('active');
-        }
-    </script>
+      <div class="section">
+        <h2>Experience</h2>
+
+        <div class="exp-role">
+          <h3>Graduate Research Assistant – Acoustics</h3>
+          <div class="exp-org">Virginia Tech • Transcranial Focused Ultrasound &amp; Acoustic Holography</div>
+          <ul>
+            <li>Conduct experimental and computational studies of ultrasonic wave propagation in complex media.</li>
+            <li>Design and validate acoustic holographic lenses for neuromodulation and thermal applications.</li>
+            <li>Develop custom analysis pipelines for field mapping and mode-conversion studies.</li>
+          </ul>
+        </div>
+
+        <div class="exp-role">
+          <h3>Graduate Teaching Assistant</h3>
+          <div class="exp-org">Virginia Tech • Mechanical Engineering</div>
+          <ul>
+            <li>Support course instruction via grading, problem-solving sessions, and student mentoring.</li>
+            <li>Contribute to ABET assessment through documentation, data analysis, and outcome dashboards.</li>
+          </ul>
+        </div>
+
+        <div class="exp-role">
+          <h3>Mechanical Design Engineer</h3>
+          <div class="exp-org">Improvians Engineering Services</div>
+          <ul>
+            <li>Provided mechanical design support for Class I medical devices and engineering systems.</li>
+            <li>Performed CAD modeling, design documentation, and structural/thermal analysis (FEA/CFD).</li>
+            <li>Collaborated with fabrication and manufacturing teams on prototype builds.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function openTab(evt, tabId) {
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(c => c.classList.remove('active'));
+
+      const buttons = document.querySelectorAll('.tab-button');
+      buttons.forEach(b => b.classList.remove('active'));
+
+      const activeContent = document.getElementById(tabId);
+      if (activeContent) activeContent.classList.add('active');
+
+      evt.currentTarget.classList.add('active');
+    }
+  </script>
 </body>
 </html>
