@@ -7,66 +7,199 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 40px auto;
             line-height: 1.6;
         }
-        h1, h2 {
+
+        h1, h2, h3 {
             color: #333;
         }
-        .section {
-            margin-bottom: 40px;
+
+        /* Tabs bar */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
         }
+
+        .tab-button {
+            padding: 10px 16px;
+            cursor: pointer;
+            border: none;
+            background: #f5f5f5;
+            border-right: 1px solid #ddd;
+            font-size: 14px;
+        }
+
+        .tab-button:last-child {
+            border-right: none;
+        }
+
+        .tab-button.active {
+            background: #ffffff;
+            font-weight: bold;
+            border-bottom: 2px solid #333;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
         .project {
             margin-bottom: 20px;
+        }
+
+        ul {
+            margin-top: 0;
+        }
+
+        a {
+            color: #0066cc;
         }
     </style>
 </head>
 
 <body>
-    <h1>Welcome to My Portfolio</h1>
-    <p>I am a PhD researcher in acoustics at Virginia Tech working on 
-       transcranial focused ultrasound, acoustic holography, 
-       simulation, and experimental validation.</p>
+    <h1 style="margin-bottom: 10px;">Mihir Pewekar</h1>
+    <p style="margin-top: 0;">
+        PhD researcher in acoustics at Virginia Tech working on transcranial focused ultrasound,
+        acoustic holography, and simulation-driven medical device design.
+    </p>
 
-    <div class="section">
-        <h2>Research Projects</h2>
+    <!-- TAB BUTTONS -->
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab(event, 'home')">Home</button>
+        <button class="tab-button" onclick="openTab(event, 'projects')">Projects</button>
+        <button class="tab-button" onclick="openTab(event, 'experience')">Experience</button>
+        <button class="tab-button" onclick="openTab(event, 'contact')">Contact</button>
+    </div>
 
-        <div class="project">
-            <h3>Acoustic Holographic Lenses for Transcranial FUS</h3>
-            <p>Designed and validated 3D-printed elastic holograms using 
-               angular spectrum modeling, mode conversion corrections, 
-               and hydrophone-based measurements.</p>
+    <!-- TAB: HOME -->
+    <div id="home" class="tab-content active">
+        <div class="section">
+            <h2>About Me</h2>
+            <p>
+                I am a mechanical engineer and acoustics researcher focused on transcranial focused ultrasound,
+                acoustic holography, and experimental validation of complex wave fields.
+                My work combines numerical modeling (k-Wave, COMSOL, mSOUND) with 3D printing
+                and hydrophone-based measurements.
+            </p>
         </div>
 
-        <div class="project">
-            <h3>3D Hydrophone Scanning System</h3>
-            <p>Built an automated scanning setup integrating Tektronix 
-               oscilloscope, function generator, and MATLAB to map 
-               acoustic fields.</p>
-        </div>
-
-        <div class="project">
-            <h3>Mode Conversion Modeling</h3>
-            <p>Simulated elastic-to-acoustic transmission using MATLAB, 
-               mSOUND, and custom angular-spectrum corrections.</p>
+        <div class="section">
+            <h2>Research Highlights</h2>
+            <ul>
+                <li>Design and validation of multiplex acoustic holographic lenses for transcranial neuromodulation.</li>
+                <li>Automated 3D hydrophone scanning system for mapping ultrasound fields.</li>
+                <li>Elastic–acoustic mode conversion modeling at multilayer interfaces.</li>
+            </ul>
         </div>
     </div>
 
-    <div class="section">
-        <h2>Experience</h2>
-        <ul>
-            <li>Graduate Research Assistant – Acoustics</li>
-            <li>Graduate Teaching Assistant – ME3524 Vibrations</li>
-            <li>Mechanical Design Engineer – Improvians Engineering</li>
-        </ul>
+    <!-- TAB: PROJECTS -->
+    <div id="projects" class="tab-content">
+        <div class="section">
+            <h2>Selected Projects</h2>
+
+            <div class="project">
+                <h3>Multiplex Acoustic Holographic Lenses for Transcranial FUS</h3>
+                <p>
+                    Designed elastic holographic lenses using CT-derived skull models and elastic–acoustic angular
+                    spectrum simulations. Implemented thickness optimization, mode conversion corrections, and
+                    validated focus profiles with a 3D hydrophone scanning setup.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>3D Hydrophone Scanning System</h3>
+                <p>
+                    Developed an automated measurement platform integrating a function generator, Tektronix oscilloscope,
+                    and multi-axis positioning system in MATLAB. Enabled point-by-point acquisition and FFT-based pressure
+                    extraction for full 3D field mapping.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>Non-Pneumatic Tire (NPT) Thermal & Structural Optimization</h3>
+                <p>
+                    Investigated a skewed hexagonal honeycomb NPT geometry for enhanced convective brake cooling.
+                    Performed CFD simulations in ANSYS Fluent and FEA-based structural analysis to identify geometries
+                    that balance heat rejection and mechanical integrity.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>ABET Outcome-Level Assessment Dashboard</h3>
+                <p>
+                    Built data-driven dashboards to track course and program outcome attainment (C3-1 to C3-7), including
+                    rubric-based metrics, confidence intervals, and visual summaries to support accreditation decisions.
+                </p>
+            </div>
+        </div>
     </div>
 
-    <div class="section">
-        <h2>Contact</h2>
-        <p>Email: yourname@vt.edu</p>
-        <p>LinkedIn: <a href="#">Your LinkedIn Link</a></p>
+    <!-- TAB: EXPERIENCE -->
+    <div id="experience" class="tab-content">
+        <div class="section">
+            <h2>Experience</h2>
+            <h3>Graduate Research Assistant – Acoustics</h3>
+            <p>
+                Conduct experimental and computational studies of ultrasonic wave propagation in complex media,
+                with emphasis on transcranial focused ultrasound and acoustic holography.
+            </p>
+
+            <h3>Graduate Teaching Assistant</h3>
+            <p>
+                Support course instruction through grading, problem-solving sessions, and student assistance.
+                Contribute to ABET-related documentation and outcome assessment.
+            </p>
+
+            <h3>Mechanical Design Engineer – Improvians Engineering Services</h3>
+            <p>
+                Provide mechanical design and engineering support for product development, including CAD modeling,
+                design documentation, FEA/CFD analysis, and coordination with manufacturing for prototype builds.
+            </p>
+        </div>
     </div>
 
+    <!-- TAB: CONTACT -->
+    <div id="contact" class="tab-content">
+        <div class="section">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:your_email@vt.edu">your_email@vt.edu</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/">LinkedIn Profile</a></p>
+            <p>GitHub: <a href="https://github.com/">GitHub Profile</a></p>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(c => c.classList.remove('active'));
+
+            // Remove 'active' from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(b => b.classList.remove('active'));
+
+            // Show selected tab
+            const activeContent = document.getElementById(tabId);
+            if (activeContent) {
+                activeContent.classList.add('active');
+            }
+
+            // Mark button as active
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
