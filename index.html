@@ -262,10 +262,10 @@
 </head>
 <body>
   <div class="container">
-    <!-- Header with photo + basic info + links -->
+
+    <!-- Header -->
     <header class="header">
       <img src="profile.jpg" alt="Photo of Mihir Pewekar" class="profile-pic">
-
       <div class="header-text">
         <h1>Mihir Pewekar</h1>
         <div class="subtitle">
@@ -278,6 +278,7 @@
           <a href="https://www.linkedin.com/in/mihirpewekar" target="_blank">LinkedIn</a>
           <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>
           <a href="resume.pdf" target="_blank">Resume (PDF)</a>
+          <a href="https://www.youtube.com/@YOURCHANNEL" target="_blank">YouTube</a>
         </div>
       </div>
     </header>
@@ -292,6 +293,7 @@
 
     <!-- HOME TAB -->
     <section id="home" class="tab-content active">
+
       <div class="section">
         <h2>About Me</h2>
         <p>
@@ -313,16 +315,20 @@
           <li>Medical device R&amp;D and translational ultrasound technologies</li>
         </ul>
       </div>
+
+      <!-- HOBBIES *correctly inside HOME section* -->
+      <div class="section">
+        <h2>Hobbies</h2>
+        <p>
+          Outside research, I enjoy bookbinding as a creative hobby — designing hand-bound journals 
+          and experimenting with materials, stitching techniques, and custom covers.  
+          Check out my YouTube channel for some of my projects:
+          <a href="https://www.youtube.com/@YOURCHANNEL" target="_blank">Bookbinding Videos</a>.
+        </p>
+      </div>
+
     </section>
-    <div class="section">
-      <h2>Hobbies</h2>
-      <p>
-        Outside research, I enjoy bookbinding as a creative hobby — designing hand-bound journals 
-        and experimenting with materials, stitching techniques, and custom covers.  
-        You can find some of my work on my YouTube channel:
-        <a href="https://www.youtube.com/@YOURCHANNEL" target="_blank">Bookbinding Videos</a>.
-      </p>
-    </div>
+
     <!-- EDUCATION TAB -->
     <section id="education" class="tab-content">
       <div class="section">
@@ -336,7 +342,7 @@
 
         <div class="edu-item">
           <strong>Bachelor of Engineering, Mechanical Engineering</strong><br>
-          University of Pune (or your institution name)<br>
+          University of Pune<br>
           <span class="muted">Projects in non-pneumatic tires, active magnetic bearings, and vehicle dynamics.</span>
         </div>
       </div>
@@ -344,6 +350,7 @@
 
     <!-- PROJECTS TAB -->
     <section id="projects" class="tab-content">
+
       <div class="section">
         <h2>Selected Projects</h2>
         <p class="muted">A sample of research, engineering, and personal projects. More details available on request.</p>
@@ -351,7 +358,7 @@
 
       <div class="projects-grid">
 
-        <!-- Acoustic Holography & Transcranial Ultrasound -->
+        <!-- Acoustic Holography -->
         <article class="project-card">
           <img src="Img1.png" alt="Hydrophone scanning setup">
           <h3>Acoustic Holography &amp; Transcranial Ultrasound</h3>
@@ -361,116 +368,110 @@
           </p>
           <ul>
             <li>Built k-Wave and mSOUND models for skull and multilayer holographic lenses.</li>
-            <li>Used optimization to synthesize arbitrary and volumetric target patterns through heterogeneous bone.</li>
-            <li>Integrated COMSOL-derived stress tensors with angular spectrum methods to study coupled modes.</li>
+            <li>Used optimization to synthesize arbitrary and volumetric target patterns through bone.</li>
+            <li>Integrated COMSOL stress tensors with angular spectrum methods.</li>
           </ul>
         </article>
 
-        <!-- Skull-Conformal Acoustic Holographic Lenses -->
+        <!-- Skull Conformal -->
         <article class="project-card">
           <img src="skull_conformal_lens.png" alt="Skull-conformal acoustic holographic lens">
           <h3>Skull-Conformal Acoustic Holographic Lenses</h3>
           <p>
-            Patient-specific, skull-conformal acoustic holographic lenses to enhance transcranial therapeutic ultrasound
-            by improving targeting accuracy and energy delivery through complex cranial geometries.
+            Patient-specific acoustic lenses to enhance transcranial therapeutic ultrasound.
           </p>
           <ul>
-            <li>Generated conformal phase maps from CT/MRI-derived skull morphology.</li>
-            <li>Fabricated multiplex SLA-printed holograms tailored to individual skulls.</li>
-            <li>Validated focusing accuracy and mode-coupling with 3D hydrophone scans.</li>
+            <li>Generated conformal phase maps from CT/MRI skull models.</li>
+            <li>Fabricated multiplex SLA-printed holograms.</li>
+            <li>Validating mode-coupling and focusing accuracy.</li>
           </ul>
         </article>
 
-        <!-- Medical Device Design -->
+        <!-- Medical Device -->
         <article class="project-card">
-          <img src="Screenshot-2025-09-01-090512.png" alt="Medical device design (public image)">
-          <h3>Class I Medical Device Design &amp; Prototyping</h3>
+          <img src="Screenshot-2025-09-01-090512.png" alt="Medical device">
+          <h3>Class I Medical Device Design</h3>
           <p>
-            Design and prototyping of Class I medical devices under NDA constraints, from CAD through fabrication-ready
-            prototypes and design-for-manufacturing considerations.
+            Designed fabrication-ready prototypes under ISO/medical constraints.
           </p>
           <ul>
-            <li>Developed CAD models and design documentation for regulatory-compliant prototypes.</li>
-            <li>Coordinated with manufacturing partners to refine form, fit, and function.</li>
+            <li>Developed CAD models and design documentation.</li>
+            <li>Coordinated with manufacturing on prototype builds.</li>
           </ul>
           <div class="project-links">
             <a href="https://www.linkedin.com/posts/improvians_engineering-productdesign-innovation-activity-7185645546135568384-pfJi" target="_blank">
-              Public LinkedIn reference
+              Public LinkedIn post
             </a>
           </div>
         </article>
 
         <!-- NPT -->
         <article class="project-card">
-          <img src="npt.png" alt="Non-pneumatic tire design">
+          <img src="npt.png" alt="NPT tire">
           <h3>Non-Pneumatic Tire with Skewed Hexagonal Honeycomb</h3>
           <p>
-            Novel NPT concept using skewed hexagonal honeycomb structures to reduce contact pressure and rolling resistance
-            while enhancing convective brake cooling.
+            Novel NPT design optimized for thermal and structural performance.
           </p>
           <ul>
-            <li>Performed FEA and CFD (ANSYS Fluent) on rotating tire geometries.</li>
-            <li>Modeled heat transfer over brake rotors to evaluate cooling performance.</li>
-            <li>Identified an optimal skewness range balancing strength and heat rejection.</li>
+            <li>FEA + CFD in ANSYS Fluent.</li>
+            <li>Brake rotor heat transfer modeling.</li>
+            <li>Identified optimal skewness geometry.</li>
           </ul>
           <div class="project-links">
-            <a href="https://doi.org/10.1115/IMECE2018-86454" target="_blank">ASME IMECE paper</a>
+            <a href="https://doi.org/10.1115/IMECE2018-86454" target="_blank">ASME IMECE Paper</a>
           </div>
         </article>
 
-        <!-- Active Magnetic Bearing -->
+        <!-- AMB -->
         <article class="project-card">
-          <img src="amb.png" alt="Active magnetic bearing schematic">
-          <h3>Active Magnetic Bearing: Design, Analysis &amp; Test Bench</h3>
+          <img src="amb.png" alt="Active magnetic bearing">
+          <h3>Active Magnetic Bearing (AMB)</h3>
           <p>
-            Contactless bearing system using electromagnetic levitation to eliminate mechanical wear and enable ultra-high
-            rotational speeds.
+            Electromagnetic levitation system enabling frictionless high-speed rotation.
           </p>
           <ul>
-            <li>Designed multi-pole stator geometry with independently controlled poles.</li>
-            <li>Developed models for force–current relationships and magnetic stiffness.</li>
-            <li>Used FEM to study flux, saturation, and actuator efficiency.</li>
+            <li>Designed multi-pole stator.</li>
+            <li>FEM-based force and flux simulation.</li>
+            <li>Benchtop validation of efficiency.</li>
           </ul>
         </article>
 
-        <!-- Go-Kart -->
+        <!-- Go Kart -->
         <article class="project-card">
-          <img src="gokart.png" alt="Go-kart">
+          <img src="gokart.png" alt="Go-Kart">
           <h3>Go-Kart Design &amp; Fabrication</h3>
           <p>
-            End-to-end design and build of a student competition go-kart, from chassis layout and strength analysis to
-            fabrication and test runs.
+            End-to-end design and build of a student competition go-kart.
           </p>
           <ul>
-            <li>Modeled chassis, steering, and drivetrain components in CAD.</li>
-            <li>Performed structural and weight optimization for the frame.</li>
-            <li>Integrated braking and engine systems into a working prototype.</li>
+            <li>CAD modeling of frame & drivetrain.</li>
+            <li>Welding & machining fabrication.</li>
+            <li>On-track testing & evaluation.</li>
           </ul>
           <div class="project-links">
             <a href="https://www.researchgate.net/publication/322750106_Design_of_subsystems_of_Go-kart_vehicle" target="_blank">
-              Project report
+              Project Report
             </a>
           </div>
         </article>
 
-        <!-- 3D-Printed PC Case -->
+        <!-- PC Case -->
         <article class="project-card">
-          <img src="PC.png" alt="3D printed PC case">
+          <img src="PC.png" alt="PC case">
           <h3>3D-Printed Open PC Case</h3>
-          <p>
-            Personal project designing a modular, open-frame PC case that showcases internal hardware while remaining functional
-            and easy to assemble.
-          </p>
+          <p>Custom-designed modular PC case optimized for 3D printing.</p>
           <ul>
-            <li>Created modular CAD components optimized for 3D printing.</li>
-            <li>Built and wired a fully functional system using the custom case.</li>
+            <li>Modular CAD panel system.</li>
+            <li>Fully assembled working system.</li>
           </ul>
         </article>
+
       </div>
     </section>
 
-    <!-- SKILLS & EXPERIENCE TAB -->
+    <!-- SKILLS TAB -->
     <section id="skills" class="tab-content">
+
       <div class="section">
         <h2>Skills</h2>
 
@@ -482,24 +483,24 @@
           <span class="tag">Hydrophone measurements</span>
         </div>
 
-        <h3>Modeling &amp; Simulation</h3>
+        <h3>Modeling & Simulation</h3>
         <div class="tag-list">
           <span class="tag">MATLAB</span>
           <span class="tag">k-Wave</span>
-          <span class="tag">COMSOL Multiphysics</span>
+          <span class="tag">COMSOL</span>
           <span class="tag">mSOUND</span>
           <span class="tag">ANSYS FEA/CFD</span>
         </div>
 
-        <h3>Design &amp; Prototyping</h3>
+        <h3>Design & Prototyping</h3>
         <div class="tag-list">
-          <span class="tag">CAD (SolidWorks, Fusion 360)</span>
+          <span class="tag">SolidWorks</span>
+          <span class="tag">Fusion 360</span>
           <span class="tag">3D printing (SLA)</span>
           <span class="tag">Medical device prototyping</span>
-          <span class="tag">Experimental test rigs</span>
         </div>
 
-        <h3>Programming &amp; Tools</h3>
+        <h3>Programming</h3>
         <div class="tag-list">
           <span class="tag">MATLAB</span>
           <span class="tag">Python</span>
@@ -513,20 +514,20 @@
 
         <div class="exp-role">
           <h3>Graduate Research Assistant – Acoustics</h3>
-          <div class="exp-org">Virginia Tech • Transcranial Focused Ultrasound &amp; Acoustic Holography</div>
+          <div class="exp-org">Virginia Tech</div>
           <ul>
-            <li>Conduct experimental and computational studies of ultrasonic wave propagation in complex media.</li>
-            <li>Design and validate acoustic holographic lenses for neuromodulation and thermal applications.</li>
-            <li>Develop custom analysis pipelines for field mapping and mode-conversion studies.</li>
+            <li>Experimental & computational ultrasound research.</li>
+            <li>Design and testing of acoustic holographic lenses.</li>
+            <li>Field mapping, signal processing, mode conversion modeling.</li>
           </ul>
         </div>
 
         <div class="exp-role">
           <h3>Graduate Teaching Assistant</h3>
-          <div class="exp-org">Virginia Tech • Mechanical Engineering</div>
+          <div class="exp-org">Virginia Tech</div>
           <ul>
-            <li>Support course instruction via grading, problem-solving sessions, and student mentoring.</li>
-            <li>Contribute to ABET assessment through documentation, data analysis, and outcome dashboards.</li>
+            <li>Grading, problem-solving sessions, student support.</li>
+            <li>Contributed to ABET outcome assessment & dashboards.</li>
           </ul>
         </div>
 
@@ -534,15 +535,16 @@
           <h3>Mechanical Design Engineer</h3>
           <div class="exp-org">Improvians Engineering Services</div>
           <ul>
-            <li>Provided mechanical design support for Class I medical devices and engineering systems.</li>
-            <li>Performed CAD modeling, design documentation, and structural/thermal analysis (FEA/CFD).</li>
-            <li>Collaborated with fabrication and manufacturing teams on prototype builds.</li>
+            <li>Medical device design & CAD modeling.</li>
+            <li>FEA/CFD analysis for structural & thermal evaluation.</li>
+            <li>Prototype fabrication & manufacturing coordination.</li>
           </ul>
         </div>
+
       </div>
     </section>
-  </div>
 
+  </div>
 
   <script>
     function openTab(evt, tabId) {
@@ -558,5 +560,6 @@
       evt.currentTarget.classList.add('active');
     }
   </script>
+
 </body>
 </html>
