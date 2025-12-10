@@ -152,7 +152,7 @@
 
   <!-- Header -->
   <header class="header">
-    <img src="profile.jpg" class="profile-pic">
+    <img src="profile.jpg" class="profile-pic" alt="Photo of Mihir Pewekar">
 
     <div class="header-text">
       <h1>Mihir Pewekar</h1>
@@ -162,10 +162,10 @@
 
       <div class="links">
         <a href="mailto:mihirpewekar95@vt.edu">Email</a>
-        <a href="https://www.linkedin.com/in/mihirpewekar" target="_blank">LinkedIn</a>
-        <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
-        <a href="resume.pdf" target="_blank">Resume (PDF)</a>
-        <a href="https://www.youtube.com/@YOURCHANNEL" target="_blank">YouTube</a>
+        <a href="https://www.linkedin.com/in/mihirpewekar/" target="_blank">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=FJntmwsAAAAJ&hl=en" target="_blank">Google Scholar</a>
+        <a href="resume.pdf" target="_blank">Resume</a>
+        <a href="https://www.youtube.com/@mihirpewekar1019" target="_blank">YouTube</a>
       </div>
     </div>
   </header>
@@ -176,6 +176,7 @@
     <button class="tab-button" onclick="openTab(event, 'education')">Education</button>
     <button class="tab-button" onclick="openTab(event, 'projects')">Projects</button>
     <button class="tab-button" onclick="openTab(event, 'skills')">Skills & Experience</button>
+    <button class="tab-button" onclick="openTab(event, 'hobbies')">Hobbies</button>
   </nav>
 
   <!-- HOME TAB -->
@@ -196,25 +197,14 @@
       <ul>
         <li>Transcranial focused ultrasound & neuromodulation</li>
         <li>Acoustic holography & complex wavefield shaping</li>
-        <li>Elastic-acoustic coupling & multilayer lens design</li>
+        <li>Elastic–acoustic coupling & multilayer lens design</li>
         <li>Medical device R&D and therapeutic ultrasound technologies</li>
       </ul>
-    </div>
-
-    <div class="section">
-      <h2>Hobbies</h2>
-      <p>
-        Outside research, I enjoy <b>bookbinding</b> — designing hand-bound journals
-        and experimenting with stitching, materials, and custom covers.<br>
-        See some of my work on YouTube:
-        <a href="https://www.youtube.com/@YOURCHANNEL" target="_blank">Bookbinding Videos</a>.
-      </p>
     </div>
   </section>
 
   <!-- EDUCATION TAB -->
   <section id="education" class="tab-content">
-
     <div class="section">
       <h2>Education</h2>
 
@@ -244,31 +234,28 @@
         <div class="edu-gpa">GPA: <b>7.11 / 10.0</b></div>
 
         <ul>
-          <li><b>Courses:</b> Core mechanical engineering coursework, Computational Fluid Dynamics</li>
-          <li><b>Extracurriculars:</b>  
+          <li><b>Courses:</b> Core mechanical engineering coursework, Computational Fluid Dynamics.</li>
+          <li><b>Extracurriculars:</b>
             Design Lead – Go-Kart Design Team |
             Lead – Smart India Hackathon (Hardware Edition) |
             Vice President – ISHRAE Student Chapter
           </li>
         </ul>
       </div>
-
     </div>
   </section>
 
   <!-- PROJECTS TAB -->
   <section id="projects" class="tab-content">
-
     <div class="section">
       <h2>Selected Projects</h2>
       <p class="muted">A sample of research, engineering, and personal projects.</p>
     </div>
 
     <div class="projects-grid">
-
       <!-- Acoustic Holography -->
       <article class="project-card">
-        <img src="Img1.png">
+        <img src="Img1.png" alt="Hydrophone scanning setup">
         <h3>Acoustic Holography & Transcranial Ultrasound</h3>
         <p>
           Simulation and experimental investigation of acoustic wave propagation in layered media,
@@ -283,7 +270,7 @@
 
       <!-- Skull Conformal -->
       <article class="project-card">
-        <img src="skull_conformal_lens.png">
+        <img src="skull_conformal_lens.png" alt="Skull-conformal lens">
         <h3>Skull-Conformal Acoustic Holographic Lenses</h3>
         <p>Patient-specific, conformal lenses for improved transcranial therapeutic ultrasound.</p>
         <ul>
@@ -295,7 +282,7 @@
 
       <!-- Medical Device -->
       <article class="project-card">
-        <img src="Screenshot-2025-09-01-090512.png">
+        <img src="Screenshot-2025-09-01-090512.png" alt="Medical device design">
         <h3>Class I Medical Device Design</h3>
         <p>Design and CAD development of regulatory-compliant medical prototypes.</p>
         <div class="project-links">
@@ -305,7 +292,7 @@
 
       <!-- NPT -->
       <article class="project-card">
-        <img src="npt.png">
+        <img src="npt.png" alt="Non-pneumatic tire">
         <h3>Non-Pneumatic Tire with Hexagonal Honeycomb</h3>
         <p>Thermo-structural optimization of honeycomb non-pneumatic tires using CFD + FEA.</p>
         <div class="project-links">
@@ -315,31 +302,29 @@
 
       <!-- AMB -->
       <article class="project-card">
-        <img src="amb.png">
+        <img src="amb.png" alt="Active magnetic bearing">
         <h3>Active Magnetic Bearing (AMB)</h3>
         <p>Electromagnetic levitation system enabling frictionless high-speed rotation.</p>
       </article>
 
       <!-- Go Kart -->
       <article class="project-card">
-        <img src="gokart.png">
+        <img src="gokart.png" alt="Go-kart">
         <h3>Go-Kart Design & Fabrication</h3>
         <p>Complete CAD, fabrication, and testing of a student competition go-kart.</p>
       </article>
 
       <!-- PC Case -->
       <article class="project-card">
-        <img src="PC.png">
+        <img src="PC.png" alt="3D printed PC case">
         <h3>3D-Printed Open PC Case</h3>
         <p>Custom modular PC case designed for additive manufacturing.</p>
       </article>
-
     </div>
   </section>
 
-  <!-- SKILLS TAB -->
+  <!-- SKILLS & EXPERIENCE TAB -->
   <section id="skills" class="tab-content">
-
     <div class="section">
       <h2>Skills</h2>
 
@@ -408,26 +393,39 @@
           <li>Prototype fabrication and manufacturing interfacing.</li>
         </ul>
       </div>
-
     </div>
+  </section>
 
+  <!-- HOBBIES TAB -->
+  <section id="hobbies" class="tab-content">
+    <div class="section">
+      <h2>Hobbies</h2>
+      <p>
+        Outside research, I enjoy <b>bookbinding</b> as a creative outlet — designing hand-bound journals
+        and experimenting with stitching techniques, materials, and custom cover designs.
+      </p>
+      <p>
+        You can see some of my bookbinding work on my YouTube channel:
+        <a href="https://www.youtube.com/@mihirpewekar1019" target="_blank">Bookbinding Videos</a>.
+      </p>
+    </div>
   </section>
 
 </div>
 
 <script>
-function openTab(evt, tabId) {
-  const contents = document.querySelectorAll('.tab-content');
-  contents.forEach(c => c.classList.remove('active'));
+  function openTab(evt, tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    contents.forEach(c => c.classList.remove('active'));
 
-  const buttons = document.querySelectorAll('.tab-button');
-  buttons.forEach(b => b.classList.remove('active'));
+    const buttons = document.querySelectorAll('.tab-button');
+    buttons.forEach(b => b.classList.remove('active'));
 
-  const activeContent = document.getElementById(tabId);
-  if (activeContent) activeContent.classList.add('active');
+    const activeContent = document.getElementById(tabId);
+    if (activeContent) activeContent.classList.add('active');
 
-  evt.currentTarget.classList.add('active');
-}
+    evt.currentTarget.classList.add('active');
+  }
 </script>
 
 </body>
